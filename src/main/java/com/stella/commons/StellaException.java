@@ -2,6 +2,8 @@ package com.stella.commons;
 
 public class StellaException extends RuntimeException {
 
+    private static final long serialVersionUID = 5171739977852743659L;
+
     public StellaException() {
         super();
     }
