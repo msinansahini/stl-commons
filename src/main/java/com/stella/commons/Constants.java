@@ -13,6 +13,14 @@ public interface Constants {
         };
     }
 
+    interface WebWallet {
+        interface UrlPaths {
+            interface Notification {
+                String CRYPTO_DEPOSIT = "/notification/crypto-deposit";
+            }
+        };
+    }
+
     interface BeanNames {
         String LITECOIN_SERVICE = "litecoinService";
         String BITCOIN_SERVICE = "bitcoinService";
