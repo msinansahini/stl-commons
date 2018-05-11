@@ -156,6 +156,16 @@ public abstract class AScheduleConfig {
         return initializer;
     }
 
+    @ConditionalOnProperty(name = "quartz.createFromSql", havingValue = "false")
+    @Bean(name = Constants.BeanNames.QUARTZ_DB_INITIALIZER)
+    public DataSourceInitializer quartzDbInitializerDummy(DataSource dataSource,
+                                                     QuartzTableCreatedCondition createdCondition) throws SQLException {
+        DataSourceInitializer initializer = new DataSourceInitializer();
+        initializer.setDataSource(dataSource);
+        initializer.setEnabled(true);
+        return initializer;
+    }
+
     @Bean
     public QuartzTableCreatedCondition quartzTableCreatedCondition(DataSource dataSource) {
         return new QuartzTableCreatedCondition(dataSource);
